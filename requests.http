@@ -1,0 +1,80 @@
+@domain = http://localhost:3000
+@jwt = 
+POST {{domain}}/users
+Content-Type: application/json
+
+{
+  "name": "Some Guy",
+  "email": "Some@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+###
+GET http://127.0.0.1:3000/users/2
+
+###
+PATCH http://127.0.0.1:3000/users/5
+Content-Type: application/json
+
+{
+  "first_name": "Jeffrey",
+  "last_name": "Walton",
+  "email": "jeffrey@gmail.com",
+  "password_digest": "password"
+}
+
+###
+DELETE http://127.0.0.1:3000/users/6
+
+###
+#Workout Requests
+GET http://127.0.0.1:3000/workouts
+
+###
+POST http://127.0.0.1:3000/workouts 
+Content-Type: application/json
+
+{
+  "user_id": "5",
+  "name": "Booty blast",
+  "muscle_group": "Glutes"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+
+### Photos create
+# POST http://localhost:3000/photos
+# Authorization: Bearer {{jwt}}
+# Content-Type: application/json
+# {
+#   "name": "Test name",
+#   "width": 640,
+#   "height": 480
+# }
+
+POST {{domain}}/sessions
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+
+###
+POST {{domain}}/workout_exercises
+Content-Type: application/json
+
+{
+  "workout_id": 2,
+  "exerciseDB_id": "3422"
+}
+
+### Workout_Exercises Index
+POST {{domain}}/workout_exercises
