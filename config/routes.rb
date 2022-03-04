@@ -15,8 +15,15 @@ Rails.application.routes.draw do
   #Workout Routes
   get "/workouts" => "workouts#index"
   post "/workouts" => "workouts#create"
+  get "/workouts-muscle/:target" => "workouts#show_muscle"
+
+  get "/workouts/:id" => "workouts#show"
+
+  
 
   post "/workout_exercises" => "workout_exercises#index"
   post "/workout_exercises" => "workout_exercises#create"
 
+  #Routes From API 
+  # get "/exercises" => "workouts#exercises_index"
 end

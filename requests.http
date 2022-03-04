@@ -1,5 +1,8 @@
 @domain = http://localhost:3000
 @jwt = 
+
+
+
 POST {{domain}}/users
 Content-Type: application/json
 
@@ -78,3 +81,15 @@ Content-Type: application/json
 
 ### Workout_Exercises Index
 POST {{domain}}/workout_exercises
+
+###
+GET {{domain}}/workouts
+
+### Exercises based on what muscle
+GET {{domain}}/workouts-muscle/biceps
+
+
+###exercise based on exercise id
+GET {{domain}}/workouts/1512
+
+###
