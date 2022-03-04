@@ -1,21 +1,21 @@
 @domain = http://localhost:3000
-@jwt = 
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NDY1MjE3NTh9.gK9ciCaRTTZqoblzZmhKx_At2zE5UKgFNZ3SGcWAApw
 
 
-
+### Create user
 POST {{domain}}/users
 Content-Type: application/json
 
 {
-  "name": "Some Guy",
-  "email": "Some@gmail.com",
+  "name": "Guy Wilson",
+  "email": "guy@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
-###
+### show user
 GET http://127.0.0.1:3000/users/2
 
-###
+### Update user
 PATCH http://127.0.0.1:3000/users/5
 Content-Type: application/json
 
@@ -26,22 +26,39 @@ Content-Type: application/json
   "password_digest": "password"
 }
 
-###
+### Users Delete
 DELETE http://127.0.0.1:3000/users/6
 
-###
-#Workout Requests
-GET http://127.0.0.1:3000/workouts
-
-###
-POST http://127.0.0.1:3000/workouts 
+### Sessions request
+POST {{domain}}/sessions
 Content-Type: application/json
 
 {
-  "user_id": "5",
-  "name": "Booty blast",
-  "muscle_group": "Glutes"
+  "email": "guy@gmail.com",
+  "password": "password"
 }
+###
+_______________________________________
+### Workouts index
+GET {{domain}}/workouts
+Authorization: Bearer {{ jwt }}
+
+### Workouts Show - This is working as it should
+GET {{domain}}/workouts/14
+Authorization: Bearer {{ jwt }}
+###
+POST http://127.0.0.1:3000/workouts 
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "name": "Killing This",
+  "muscle_group": "quads",
+  "exercise_ids": ["1368", "3293", "0007"]
+}
+### Delete Workout
+DELETE {{domain}}/workouts/18
+Authorization: Bearer {{ jwt }}
 
 ### Sessions create (login)
 POST http://localhost:3000/sessions
@@ -51,6 +68,7 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "password"
 }
+
 
 ### Photos create
 # POST http://localhost:3000/photos
@@ -62,13 +80,6 @@ Content-Type: application/json
 #   "height": 480
 # }
 
-POST {{domain}}/sessions
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "password": "password"
-}
 
 ###
 POST {{domain}}/workout_exercises
@@ -82,14 +93,14 @@ Content-Type: application/json
 ### Workout_Exercises Index
 POST {{domain}}/workout_exercises
 
-###
-GET {{domain}}/workouts
+### All Exercises
+GET {{domain}}/exercises
 
 ### Exercises based on what muscle
-GET {{domain}}/workouts-muscle/biceps
+GET {{domain}}/exercises-muscle/biceps
 
 
 ###exercise based on exercise id
-GET {{domain}}/workouts/1512
+GET {{domain}}/exercises/1512
 
 ###

@@ -12,14 +12,16 @@ Rails.application.routes.draw do
   #Session Routes
   post "/sessions" => "sessions#create"
   
-  #Workout Routes
+  #Exercise Routes
+  get "/exercises" => "exercises#index"
+  get "/exercises-muscle/:target" => "exercises#show_muscle"
+  get "/exercises/:id" => "exercises#show"
+
+#Workout Routes for current user
   get "/workouts" => "workouts#index"
   post "/workouts" => "workouts#create"
-  get "/workouts-muscle/:target" => "workouts#show_muscle"
-
   get "/workouts/:id" => "workouts#show"
-
-  
+  delete "/workouts/:id" => "workouts#destroy"
 
   post "/workout_exercises" => "workout_exercises#index"
   post "/workout_exercises" => "workout_exercises#create"
