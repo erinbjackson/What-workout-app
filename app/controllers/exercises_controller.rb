@@ -14,6 +14,6 @@ class ExercisesController < ApplicationController
 
   def show_muscle
     muscle = HTTP.headers("X-Rapidapi-Key" => Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises/target/#{params["target"]}").parse(:json)
-    render json: muscle
+    render json: muscle.shuffle.take(5)
   end
 end

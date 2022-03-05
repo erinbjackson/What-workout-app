@@ -21,10 +21,15 @@ Rails.application.routes.draw do
   get "/workouts" => "workouts#index"
   post "/workouts" => "workouts#create"
   get "/workouts/:id" => "workouts#show"
+  patch "/workouts/:id" => "workouts#update"
   delete "/workouts/:id" => "workouts#destroy"
 
-  post "/workout_exercises" => "workout_exercises#index"
+
+  get "/workout_exercises" => "workout_exercises#index"
   post "/workout_exercises" => "workout_exercises#create"
+  
+
+  
 
   #Routes From API 
   # get "/exercises" => "workouts#exercises_index"

@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NDY1MjE3NTh9.gK9ciCaRTTZqoblzZmhKx_At2zE5UKgFNZ3SGcWAApw
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NDY1OTg2MjB9.6TXNmMXsT7wak8Ih7Q_drj01ZzdDzpe0n96SsRlgg_0
 
 
 ### Create user
@@ -44,20 +44,11 @@ GET {{domain}}/workouts
 Authorization: Bearer {{ jwt }}
 
 ### Workouts Show - This is working as it should
-GET {{domain}}/workouts/14
-Authorization: Bearer {{ jwt }}
-###
-POST http://127.0.0.1:3000/workouts 
-Content-Type: application/json
+GET {{domain}}/workouts/19
 Authorization: Bearer {{ jwt }}
 
-{
-  "name": "Killing This",
-  "muscle_group": "quads",
-  "exercise_ids": ["1368", "3293", "0007"]
-}
 ### Delete Workout
-DELETE {{domain}}/workouts/18
+DELETE {{domain}}/workouts/19
 Authorization: Bearer {{ jwt }}
 
 ### Sessions create (login)
@@ -86,21 +77,45 @@ POST {{domain}}/workout_exercises
 Content-Type: application/json
 
 {
-  "workout_id": 2,
-  "exerciseDB_id": "3422"
+  "workout_id": 20
+  
 }
 
 ### Workout_Exercises Index
-POST {{domain}}/workout_exercises
+GET {{domain}}/workout_exercises 
 
-### All Exercises
+
+###
+POST http://127.0.0.1:3000/workouts 
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "name": "Saturday hard workout",
+  "muscle_group": "quads",
+  "exercise_ids": ["3293", "3294", "2355"]
+}
+
+### Updat Workout
+PATCH {{domain}}/workouts/12
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "name": "Fast workout",
+  "muscle_group": "delts",
+  "exercise_ids": ["0002", "0003", "0004", "1122", "0006"]
+
+}
+
+### All Exercises (currently set to get 5 exercises)
 GET {{domain}}/exercises
 
-### Exercises based on what muscle
-GET {{domain}}/exercises-muscle/biceps
+### Exercises based on what muscle -set to get 5
+GET {{domain}}/exercises-muscle/quads
 
 
 ###exercise based on exercise id
-GET {{domain}}/exercises/1512
+GET {{domain}}/exercises/1368
 
 ###
