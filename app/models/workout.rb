@@ -2,9 +2,10 @@ class Workout < ApplicationRecord
 
   validates :name, presence: true, length: {in: 2..25}
   validates :user_id, presence: true
+  
   belongs_to :user
-  has_many :exercises
   has_many :workout_exercises
+  has_many :exercises, through: :workout_exercises
 
   def exercises
     workout_exercises.map do |workout_exercise|

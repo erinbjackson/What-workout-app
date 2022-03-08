@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NDY1OTg2MjB9.6TXNmMXsT7wak8Ih7Q_drj01ZzdDzpe0n96SsRlgg_0
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NDY3Nzk0MTF9.HlqiPmkMoRIj8RQAFopDKbV4uKnUe1I1RRAWGlOThqo
 
 
 ### Create user
@@ -7,27 +7,26 @@ POST {{domain}}/users
 Content-Type: application/json
 
 {
-  "name": "Guy Wilson",
-  "email": "guy@gmail.com",
+  "name": "Erin Jackson",
+  "email": "erin@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
 ### show user
-GET http://127.0.0.1:3000/users/2
+GET http://127.0.0.1:3000/users/9
 
 ### Update user
-PATCH http://127.0.0.1:3000/users/5
+PATCH http://127.0.0.1:3000/users/4
 Content-Type: application/json
 
 {
-  "first_name": "Jeffrey",
-  "last_name": "Walton",
-  "email": "jeffrey@gmail.com",
+  "name": "Jeffrey Walton",
+  "email": "jeffy@gmail.com",
   "password_digest": "password"
 }
 
 ### Users Delete
-DELETE http://127.0.0.1:3000/users/6
+DELETE http://127.0.0.1:3000/users/4
 
 ### Sessions request
 POST {{domain}}/sessions
@@ -43,41 +42,21 @@ _______________________________________
 GET {{domain}}/workouts
 Authorization: Bearer {{ jwt }}
 
-### Workouts Show - This is working as it should
-GET {{domain}}/workouts/19
+### Workouts Show 
+GET {{domain}}/workouts/13
 Authorization: Bearer {{ jwt }}
 
 ### Delete Workout
-DELETE {{domain}}/workouts/19
+DELETE {{domain}}/workouts/25
 Authorization: Bearer {{ jwt }}
-
-### Sessions create (login)
-POST http://localhost:3000/sessions
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "password": "password"
-}
-
-
-### Photos create
-# POST http://localhost:3000/photos
-# Authorization: Bearer {{jwt}}
-# Content-Type: application/json
-# {
-#   "name": "Test name",
-#   "width": 640,
-#   "height": 480
-# }
-
 
 ###
 POST {{domain}}/workout_exercises
 Content-Type: application/json
 
 {
-  "workout_id": 20
+  "workout_id": 24,
+  "exerciseDB_id": "3204"
   
 }
 
