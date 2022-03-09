@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   #User Routes
   post "/users" => "users#create"
-  get "/users/:id" => "users#show"
-  patch "/users/:id" => "users#update"
-  delete "users/:id" => "users#destroy"
+  get "/users/me" => "users#show"
+  patch "/users/me" => "users#update"
+  delete "users/me" => "users#destroy"
 
   #Session Routes
   post "/sessions" => "sessions#create"

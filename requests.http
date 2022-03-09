@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NDY3Nzk0MTF9.HlqiPmkMoRIj8RQAFopDKbV4uKnUe1I1RRAWGlOThqo
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMSwiZXhwIjoxNjQ2ODg3NzkzfQ.r9BeF_l6TfoiMCD8UqAKtnmpCyJkjkO3JQO55qCLMmo
 
 
 ### Create user
@@ -7,33 +7,36 @@ POST {{domain}}/users
 Content-Type: application/json
 
 {
-  "name": "Erin Jackson",
-  "email": "erin@gmail.com",
+  "name": "evo Jackson",
+  "email": "evo@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
 ### show user
-GET http://127.0.0.1:3000/users/9
+GET http://127.0.0.1:3000/users/me
+Authorization: Bearer {{ jwt }}
 
 ### Update user
-PATCH http://127.0.0.1:3000/users/4
+PATCH http://127.0.0.1:3000/users/me
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "name": "Jeffrey Walton",
-  "email": "jeffy@gmail.com",
-  "password_digest": "password"
+  "name": "Den Wolson",
+  "email": "don@gmail.com"
+  
 }
 
 ### Users Delete
-DELETE http://127.0.0.1:3000/users/4
+DELETE http://127.0.0.1:3000/users/me
+Authorization: Bearer {{ jwt }}
 
 ### Sessions request
 POST {{domain}}/sessions
 Content-Type: application/json
 
 {
-  "email": "guy@gmail.com",
+  "email": "evo@gmail.com",
   "password": "password"
 }
 ###
@@ -43,11 +46,11 @@ GET {{domain}}/workouts
 Authorization: Bearer {{ jwt }}
 
 ### Workouts Show 
-GET {{domain}}/workouts/13
+GET {{domain}}/workouts/26
 Authorization: Bearer {{ jwt }}
 
 ### Delete Workout
-DELETE {{domain}}/workouts/25
+DELETE {{domain}}/workouts/28
 Authorization: Bearer {{ jwt }}
 
 ###
@@ -60,36 +63,38 @@ Content-Type: application/json
   
 }
 
-### Workout_Exercises Index
-GET {{domain}}/workout_exercises 
 
-
-###
+### Workout create
 POST http://127.0.0.1:3000/workouts 
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "name": "Saturday hard workout",
+  "name": "Srday hard workout",
   "muscle_group": "quads",
   "exercise_ids": ["3293", "3294", "2355"]
 }
 
 ### Updat Workout
-PATCH {{domain}}/workouts/12
+PATCH {{domain}}/workouts/27
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "name": "Fast workout",
-  "muscle_group": "delts",
-  "exercise_ids": ["0002", "0003", "0004", "1122", "0006"]
-
+  "name": "Fast kout",
+  "muscle_group": "biceps"
 }
 
 ### All Exercises (currently set to get 5 exercises)
 GET {{domain}}/exercises
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
+{
+  "target": "biceps",
+  "exercise_count": 4
+
+}
 ### Exercises based on what muscle -set to get 5
 GET {{domain}}/exercises-muscle/quads
 

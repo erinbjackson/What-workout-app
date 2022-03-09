@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, except: [:create]
+
+
   def create
     user = User.new(
       name: params[:name],
@@ -14,15 +17,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user.as_json
+    user = current_user
+    render json: user
   end
 
   def update
-    user = User.find(params[:id].to_i)
+    user = current_user
     user.name = params[:name] || user.name
     user.email = params[:email] || user.email
-    user.password_digest = params[:password_digest] || user.password_digest
     if user.save
       render json: user
     else
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    user = User.find(params[:id])
+    user = current_user
     user.destroy
     render json:{message: "Your account has been destroyed."}
   end

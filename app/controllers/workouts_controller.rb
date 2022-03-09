@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   def index
     workouts = current_user.workouts
     if workouts
-      render json: workouts, include: "workout_exercises"
+      render json: workouts, include: []
     else
       render json: {}, status: :unauthorized
     end
@@ -13,7 +13,7 @@ class WorkoutsController < ApplicationController
   def show
     workout = current_user.workouts.find(params[:id])
     if workout
-      render json: workout, include: "workout_exercises"
+      render json: workout
     else
       render json: {}, status: :unauthorized
     end
@@ -40,10 +40,6 @@ class WorkoutsController < ApplicationController
     workout.name = params[:name] || workout.name
     workout.muscle_group = params[:muscle_group] || workout.muscle_group
     if workout.save
-      #loop through array of exrcise ids and create new workout_exercises (array will be made on the front end and get sent to the backend)
-      params[:exercise_ids].each do |exercise_id|
-        WorkoutExercise.create({workout_id: workout.id, exerciseDB_id: exercise_id})
-      end
       render json: workout
     else
       render json: {errors: workout.errors.full_messages}, status: :bad_request

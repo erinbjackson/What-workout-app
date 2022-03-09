@@ -1,8 +1,8 @@
 class WorkoutExercisesController < ApplicationController
-  def index
-    workout_exercises = HTTP.headers("X-Rapidapi-Key" =>Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises").parse(:json)
-    render json: workout_exercises.shuffle.take(5)
-  end
+  # def index
+  #   workout_exercises = HTTP.headers("X-Rapidapi-Key" =>Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises").parse(:json)
+  #   render json: workout_exercises
+  # end
   
   def create
     workout_exercise = WorkoutExercise.new(
