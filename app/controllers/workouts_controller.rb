@@ -12,11 +12,11 @@ class WorkoutsController < ApplicationController
 
   def show
     workout = current_user.workouts.find(params[:id])
-    if workout
-      render json: workout
-    else
-      render json: {}, status: :unauthorized
-    end
+    # if workout
+       render json: workout
+    # else
+      # render json: {}, status: :unauthorized
+    # end
   end
 
   def create

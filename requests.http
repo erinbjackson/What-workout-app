@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMSwiZXhwIjoxNjQ2ODg3NzkzfQ.r9BeF_l6TfoiMCD8UqAKtnmpCyJkjkO3JQO55qCLMmo
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDcwMzk2MTB9.B4lf49_EzzfxJzt-dNoHErt4oLAHnRaB_rdw13BsgMA
 
 
 ### Create user
@@ -7,8 +7,8 @@ POST {{domain}}/users
 Content-Type: application/json
 
 {
-  "name": "evo Jackson",
-  "email": "evo@gmail.com",
+  "name": " Jackson",
+  "email": "jackson@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -22,8 +22,8 @@ Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "name": "Den Wolson",
-  "email": "don@gmail.com"
+  "name": "Friendly Jones",
+  "email": "friendly@gmail.com"
   
 }
 
@@ -36,7 +36,7 @@ POST {{domain}}/sessions
 Content-Type: application/json
 
 {
-  "email": "evo@gmail.com",
+  "email": "test@test.com",
   "password": "password"
 }
 ###
@@ -46,7 +46,7 @@ GET {{domain}}/workouts
 Authorization: Bearer {{ jwt }}
 
 ### Workouts Show 
-GET {{domain}}/workouts/26
+GET {{domain}}/workouts/11
 Authorization: Bearer {{ jwt }}
 
 ### Delete Workout
