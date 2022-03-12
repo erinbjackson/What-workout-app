@@ -1,14 +1,22 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDcwMzk2MTB9.B4lf49_EzzfxJzt-dNoHErt4oLAHnRaB_rdw13BsgMA
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2NDcyMDcxNjB9.QF7sZ96Gdhz2NVWmrnc5j9SuzFEnaudQunbl7abC1IM
 
+### Sessions request
+POST {{domain}}/sessions
+Content-Type: application/json
+
+{
+  "email": "jessie@gmail.com",
+  "password": "password"
+}
 
 ### Create user
 POST {{domain}}/users
 Content-Type: application/json
 
 {
-  "name": " Jackson",
-  "email": "jackson@gmail.com",
+  "name": " erin Jackson",
+  "email": "erin@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -31,14 +39,7 @@ Authorization: Bearer {{ jwt }}
 DELETE http://127.0.0.1:3000/users/me
 Authorization: Bearer {{ jwt }}
 
-### Sessions request
-POST {{domain}}/sessions
-Content-Type: application/json
 
-{
-  "email": "test@test.com",
-  "password": "password"
-}
 ###
 _______________________________________
 ### Workouts index
@@ -46,19 +47,19 @@ GET {{domain}}/workouts
 Authorization: Bearer {{ jwt }}
 
 ### Workouts Show 
-GET {{domain}}/workouts/11
+GET {{domain}}/workouts/me/1
 Authorization: Bearer {{ jwt }}
 
 ### Delete Workout
-DELETE {{domain}}/workouts/28
+DELETE {{domain}}/workouts/me/54
 Authorization: Bearer {{ jwt }}
 
-###
+### workout edit? 
 POST {{domain}}/workout_exercises
 Content-Type: application/json
 
 {
-  "workout_id": 24,
+  "workout_id": 66,
   "exerciseDB_id": "3204"
   
 }
@@ -70,13 +71,13 @@ Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "name": "Srday hard workout",
-  "muscle_group": "quads",
-  "exercise_ids": ["3293", "3294", "2355"]
+  "name": "please delete",
+  "muscle_group": "mixed muscles",
+  "exercise_ids": ["3204", "0009", "0011", "0010", "1708"]
 }
 
 ### Updat Workout
-PATCH {{domain}}/workouts/27
+PATCH {{domain}}/workouts/34
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
@@ -103,3 +104,8 @@ GET {{domain}}/exercises-muscle/quads
 GET {{domain}}/exercises/1368
 
 ###
+
+###Workout_Exercise delete
+
+DELETE {{domain}}/workout_exercises/me/150
+Authorization: Bearer {{ jwt }}

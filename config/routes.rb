@@ -18,15 +18,16 @@ Rails.application.routes.draw do
   get "/exercises/:id" => "exercises#show"
 
 #Workout Routes for current user
-  get "/workouts" => "workouts#index"
+  get "/workouts/me" => "workouts#index"
   post "/workouts" => "workouts#create"
-  get "/workouts/:id" => "workouts#show"
+  get "/workouts/me/:id" => "workouts#show"
   patch "/workouts/:id" => "workouts#update"
-  delete "/workouts/:id" => "workouts#destroy"
+  delete "/workouts/me/:id" => "workouts#destroy"
 
 
   get "/workout_exercises" => "workout_exercises#index"
   post "/workout_exercises" => "workout_exercises#create"
+  delete "/workout_exercises/me/:id" => "workout_exercises#destroy"
   
 
   
