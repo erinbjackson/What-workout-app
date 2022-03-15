@@ -1,8 +1,9 @@
 class WorkoutSerializer < ActiveModel::Serializer
-  attributes :id, :name, :muscle_group
+  attributes :id, :name
 
-  belongs_to :user
-  has_many :workout_exercises
+  
+  #has_many :workout_exercises
+  has_many :exercises
   
 
   

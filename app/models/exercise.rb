@@ -1,11 +1,19 @@
 class Exercise < ApplicationRecord
   belongs_to :workout
+  belongs_to :workout_exercise
 
-  def ex_name
-    name
-  end
-  def ex_equip
-    equipment
-  end
+  
+  #This works in isolation- now incorporate into code.
+#   def nonSexistName (name) 
+#     name.slice! "(male)"
+#     name.gsub!"sissy ", "lean back "
+#     p name
+#   end
+# nonSexistName(exercise[:exercise][:name])
+
+  
+  
+
+  
   
 end

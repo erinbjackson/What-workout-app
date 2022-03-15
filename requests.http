@@ -1,12 +1,12 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2NDcyMDcxNjB9.QF7sZ96Gdhz2NVWmrnc5j9SuzFEnaudQunbl7abC1IM
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3Mzc5OTQyfQ.dPtqgVnZCXFEpQGRhAKkqhM9X26QTpuPoFEV1ica_nM
 
 ### Sessions request
 POST {{domain}}/sessions
 Content-Type: application/json
 
 {
-  "email": "jessie@gmail.com",
+  "email": "aiden@gmail.com",
   "password": "password"
 }
 
@@ -43,15 +43,15 @@ Authorization: Bearer {{ jwt }}
 ###
 _______________________________________
 ### Workouts index
-GET {{domain}}/workouts
+GET {{domain}}/workouts/me
 Authorization: Bearer {{ jwt }}
 
 ### Workouts Show 
-GET {{domain}}/workouts/me/1
+GET {{domain}}/workouts/me/67
 Authorization: Bearer {{ jwt }}
 
-### Delete Workout
-DELETE {{domain}}/workouts/me/54
+### DELETE Workout
+DELETE {{domain}}/workouts/me/65
 Authorization: Bearer {{ jwt }}
 
 ### workout edit? 
@@ -71,9 +71,9 @@ Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "name": "please delete",
+  "name": "serializer test workout",
   "muscle_group": "mixed muscles",
-  "exercise_ids": ["3204", "0009", "0011", "0010", "1708"]
+  "exercise_ids": ["3223", "0009", "3223", "0010", "1708"]
 }
 
 ### Updat Workout
@@ -101,7 +101,7 @@ GET {{domain}}/exercises-muscle/quads
 
 
 ###exercise based on exercise id
-GET {{domain}}/exercises/1368
+GET {{domain}}/exercises/3223
 
 ###
 

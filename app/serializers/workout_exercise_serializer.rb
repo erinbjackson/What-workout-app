@@ -1,4 +1,6 @@
 class WorkoutExerciseSerializer < ActiveModel::Serializer
-  attributes :id, :exercise
+  attributes 
   
+  belongs_to :workout
+  has_many :exercises
 end

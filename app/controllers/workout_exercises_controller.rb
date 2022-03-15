@@ -7,7 +7,8 @@ class WorkoutExercisesController < ApplicationController
   def create
     workout_exercise = Workout_Exercise.new(
     workout_id: params[:workout_id].to_i,
-    exerciseDB_id: params[:exerciseDB_id]
+    exerciseDB_id: params[:exerciseDB_id],
+    exercise_ids: params[exercise_ids]
     ) 
     if workout_exercise.save
       render json: workout_exercise
@@ -19,9 +20,10 @@ class WorkoutExercisesController < ApplicationController
   def destroy
     w_exercise = current_user.workout_exercises.find(params[:id])
     if w_exercise.delete
-    render json:{ message:"Your workout exercises have been destroyed."}
-  else
-    render json: {errors: w_exercise.errors.full_messages}, status: :bad_request
+      render json:{ message:"Your workout exercises have been destroyed."}
+    else
+      render json: {errors: w_exercise.errors.full_messages}, status: :bad_request
+    end
   end
  
 end

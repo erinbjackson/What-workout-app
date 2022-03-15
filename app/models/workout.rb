@@ -11,6 +11,14 @@ class Workout < ApplicationRecord
     workout_exercises.map do |workout_exercise|
       HTTP.headers("X-Rapidapi-Key" => Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises/exercise/#{workout_exercise.exerciseDB_id}").parse(:json)
     end
-    
   end
+  
+
+  # def non_sexist_name (name) 
+  #   name.slice! "(male)"
+  #   name.gsub!"sissy ", "lean back "
+  #   name
+  # end
+  # nonSexistName(exercise[:exercise][:name])
+  
 end
