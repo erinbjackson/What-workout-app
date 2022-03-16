@@ -49,7 +49,7 @@ class WorkoutsController < ApplicationController
 
   def destroy
     workout = current_user.workouts.find(params[:id])
-    workout.delete
+    workout.destroy
     render json:{ message:"Your workout '#{workout.name}' has been destroyed."}
   end
   

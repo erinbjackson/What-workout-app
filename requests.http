@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3NDU4MjM0fQ.4d--CbR9-nkRbQLwLVKTwre39C-5MOUr_uZ560clOuI
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3NTM3OTY0fQ.nMcFJPGUyEYuBUVqXwxeiOTay7qOwxPQrUeboPfATF8
 
 ### Sessions request
 POST {{domain}}/sessions
@@ -51,7 +51,7 @@ GET {{domain}}/workouts/me/82
 Authorization: Bearer {{ jwt }}
 
 ### DELETE Workout
-DELETE {{domain}}/workouts/me/65
+DELETE {{domain}}/workouts/me/95
 Authorization: Bearer {{ jwt }}
 
 ### workout edit? 

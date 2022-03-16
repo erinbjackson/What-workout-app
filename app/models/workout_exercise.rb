@@ -1,6 +1,6 @@
 class WorkoutExercise < ApplicationRecord
   belongs_to :workout
-  has_many :exercises
+  
   
   
   def exercise
