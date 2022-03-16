@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3Mzc5OTQyfQ.dPtqgVnZCXFEpQGRhAKkqhM9X26QTpuPoFEV1ica_nM
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3NDU4MjM0fQ.4d--CbR9-nkRbQLwLVKTwre39C-5MOUr_uZ560clOuI
 
 ### Sessions request
 POST {{domain}}/sessions
@@ -47,7 +47,7 @@ GET {{domain}}/workouts/me
 Authorization: Bearer {{ jwt }}
 
 ### Workouts Show 
-GET {{domain}}/workouts/me/67
+GET {{domain}}/workouts/me/82
 Authorization: Bearer {{ jwt }}
 
 ### DELETE Workout
@@ -66,12 +66,12 @@ Content-Type: application/json
 
 
 ### Workout create
-POST http://127.0.0.1:3000/workouts 
+POST http://127.0.0.1:3000/workouts/me
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "name": "serializer test workout",
+  "name": "tuesday test workout",
   "muscle_group": "mixed muscles",
   "exercise_ids": ["3223", "0009", "3223", "0010", "1708"]
 }

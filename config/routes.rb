@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
 #Workout Routes for current user
   get "/workouts/me" => "workouts#index"
-  post "/workouts" => "workouts#create"
+  post "/workouts/me" => "workouts#create"
   get "/workouts/me/:id" => "workouts#show"
   patch "/workouts/:id" => "workouts#update"
   delete "/workouts/me/:id" => "workouts#destroy"

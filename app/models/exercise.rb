@@ -17,3 +17,4 @@ class Exercise < ApplicationRecord
   
   
 end
+  

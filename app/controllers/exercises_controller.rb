@@ -2,14 +2,10 @@ class ExercisesController < ApplicationController
   def index
     exercises = HTTP.headers("X-Rapidapi-Key" =>Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises/target/#{params[:target]}").parse(:json)
     #narrow down by using filter for equipment before shuffle
-    p params
-    # render json: exercises.shuffle.take(4)
-    render json: exercises.shuffle.take(params[:exercise_count].to_i)
     
+    render json: exercises.shuffle.take(params[:exercise_count].to_i)
   end
 
-  
-  
   def show
     exercise = HTTP.headers("X-Rapidapi-Key" => Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises/exercise/#{params[:id]}").parse(:json)
     render json: exercise
