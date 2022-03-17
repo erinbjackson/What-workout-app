@@ -20,12 +20,5 @@ class ExercisesController < ApplicationController
     # render json: muscle.shuffle.take(5)
   end
 
-  # def show_equipment
-  #   equipment = HTTP.headers("X-Rapidapi-Key" => Rails.application.credentials.exercise_api_key).get("https://exercisedb.p.rapidapi.com/exercises/equipment/#{params["equipment"]}").parse(:json)
-
-  #   render json: equipment.shuffle.take(5)
-  #   # render json: exercises.shuffle.take(params[:exercise_count].to_i)    
-    
-  # end
-
+ 
 end

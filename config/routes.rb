@@ -14,14 +14,16 @@ Rails.application.routes.draw do
   
   #Exercise Routes
   get "/exercises" => "exercises#index"
-
   get "/exercises-muscle/:target" => "exercises#show_muscle"
-  
   get "/exercises-equipment" => "exercises#show_equipment"
-
-  
-
   get "/exercises/:id" => "exercises#show"
+  get "/exercises-all" => "exercises#ex_index"
+
+  #DB_Exercises Routes
+  #Dont use the index route unless you need it. Too many api calls
+  get "/db-exercises" => "db_exercises#index"
+  # post "/db-exercises" => "db_exercises#create"
+  post "/db-exercises" => "db_exercises#create_exercises"
 
 
 #Workout Routes for current user

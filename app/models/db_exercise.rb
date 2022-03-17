@@ -1,0 +1,3 @@
+class DbExercise < ApplicationRecord
+  
+end

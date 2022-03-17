@@ -107,10 +107,23 @@ Authorization: Bearer {{ jwt }}
   "exercise_count": 4
 
 }
+###
+POST {{domain}}/db-exercises
+Content-Type: application/json
 
+{
+  "name": "barbell biceps curl (with arm blaster)",
+  "bodyPart": "upper arms",
+  "equipment": "barbell",
+  "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/2407.gif",
+  "exerciseDB_id": "2407",
+  "target": "biceps"
+}
 
-
-
+###
+### Loop through all exercises and put them in the database
+POST {{domain}}/db-exercises
+Content-Type: application/json
 
 ### Exercises based on what muscle -set to get 5
 GET {{domain}}/exercises-muscle/quads
@@ -126,10 +139,5 @@ GET {{domain}}/exercises/3223
 DELETE {{domain}}/workout_exercises/me/150
 Authorization: Bearer {{ jwt }}
 
-###
-GET https://exercisedb.p.rapidapi.com/exercises/equipment/band
-x-rapidapi-key: f8fa836ffbmsh69f9dd27b667f01p1d2cb1jsnaa2a477cb985
-
-###
-GET https://exercisedb.p.rapidapi.com/exercises/target/biceps/equipment/band
-x-rapidapi-key: f8fa836ffbmsh69f9dd27b667f01p1d2cb1jsnaa2a477cb985
+###DO NOT SEND REQUEST - TOO MANY API CALLS
+#GET {{domain}}/db-exercises
