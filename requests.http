@@ -96,6 +96,22 @@ Authorization: Bearer {{ jwt }}
   "exercise_count": 4
 
 }
+
+### Exercises by equipment
+GET {{domain}}/exercises-equipment
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "equipment": "cable",
+  "exercise_count": 4
+
+}
+
+
+
+
+
 ### Exercises based on what muscle -set to get 5
 GET {{domain}}/exercises-muscle/quads
 
@@ -109,3 +125,11 @@ GET {{domain}}/exercises/3223
 
 DELETE {{domain}}/workout_exercises/me/150
 Authorization: Bearer {{ jwt }}
+
+###
+GET https://exercisedb.p.rapidapi.com/exercises/equipment/band
+x-rapidapi-key: f8fa836ffbmsh69f9dd27b667f01p1d2cb1jsnaa2a477cb985
+
+###
+GET https://exercisedb.p.rapidapi.com/exercises/target/biceps/equipment/band
+x-rapidapi-key: f8fa836ffbmsh69f9dd27b667f01p1d2cb1jsnaa2a477cb985

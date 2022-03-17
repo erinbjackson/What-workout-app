@@ -14,8 +14,15 @@ Rails.application.routes.draw do
   
   #Exercise Routes
   get "/exercises" => "exercises#index"
+
   get "/exercises-muscle/:target" => "exercises#show_muscle"
+  
+  get "/exercises-equipment" => "exercises#show_equipment"
+
+  
+
   get "/exercises/:id" => "exercises#show"
+
 
 #Workout Routes for current user
   get "/workouts/me" => "workouts#index"
