@@ -121,6 +121,9 @@ Content-Type: application/json
 }
 
 ###
+GET {{domain}}/db-exercises
+
+
 ### Loop through all exercises and put them in the database
 POST {{domain}}/db-exercises
 Content-Type: application/json
