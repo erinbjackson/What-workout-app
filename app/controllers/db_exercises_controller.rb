@@ -8,7 +8,7 @@ class DbExercisesController < ApplicationController
   def show
     exercises = DbExercise.all 
     filtered_exercises = []
-    final_workout = []
+    final_workouts = []
     exercises.each do |exercise| 
       equip_arr = params[:equip_arr]
       i = 0
@@ -24,12 +24,12 @@ class DbExercisesController < ApplicationController
       t = 0
       while t < targets.length
         if filtered_exercise[:target] == targets[t]
-          final_workout << filtered_exercise
+          final_workouts << filtered_exercise
         end
         t += 1
       end
     end
-    render json: final_workout.shuffle.take(params[:exercise_count].to_i)
+    render json: final_workouts.shuffle.take(params[:exercise_count].to_i)
   end
  
 end
