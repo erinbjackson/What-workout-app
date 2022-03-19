@@ -124,14 +124,15 @@ Content-Type: application/json
 GET {{domain}}/db-exercises
 
 
-###Gets the filtered list based on equipment
+###Gets the filtered list based on arrays of equipment, targets and exercise count.
 GET {{domain}}/db-exercises-filter
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
   "equip_arr": ["band", "cable"],
-  "targets": ["pectorals", "biceps"]
+  "targets": ["biceps", "triceps", "delts"],
+  "exercise_count": 7
 }
 
 

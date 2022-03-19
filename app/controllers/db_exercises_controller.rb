@@ -8,23 +8,28 @@ class DbExercisesController < ApplicationController
   def show
     exercises = DbExercise.all 
     filtered_exercises = []
+    final_workout = []
     exercises.each do |exercise| 
       equip_arr = params[:equip_arr]
-      targets = params[:targets]
-      
-
       i = 0
       while i < equip_arr.length
-        if exercise[:equipment] == equip_arr[i] &&
-          exercise[:target] == targets[i]
+        if exercise[:equipment] == equip_arr[i]
           filtered_exercises << exercise
         end
         i += 1
       end
     end
-    render json: filtered_exercises
+    filtered_exercises.each do |filtered_exercise|
+      targets = params[:targets]
+      t = 0
+      while t < targets.length
+        if filtered_exercise[:target] == targets[t]
+          final_workout << filtered_exercise
+        end
+        t += 1
+      end
+    end
+    render json: final_workout.shuffle.take(params[:exercise_count].to_i)
   end
-
-#This does work right now but as I loop through its only getting things that meet the criteria for index 1 at the same time, then index 2 at the same time. I really need to loop through twice and shuttle in to two different arrays, returning the 2nd array. 
  
 end
