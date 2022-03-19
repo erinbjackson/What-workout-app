@@ -1,5 +1,5 @@
 @domain = http://localhost:3000
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3NTM3OTY0fQ.nMcFJPGUyEYuBUVqXwxeiOTay7qOwxPQrUeboPfATF8
+ @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjQ3NzM3MTk4fQ.8NgGZc7Q03_t5GP_KlWPeKpuFShFMvx_Zr9basX72ts
 
 ### Sessions request
 POST {{domain}}/sessions
@@ -122,6 +122,17 @@ Content-Type: application/json
 
 ###
 GET {{domain}}/db-exercises
+
+
+###Gets the filtered list based on equipment
+GET {{domain}}/db-exercises-filter
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "equip_arr": ["band", "cable"],
+  "targets": ["pectorals", "biceps"]
+}
 
 
 ### Loop through all exercises and put them in the database

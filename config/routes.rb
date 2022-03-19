@@ -23,11 +23,11 @@ Rails.application.routes.draw do
   #Dont use the index route unless you need it. Too many api calls
 
   #get "/db-exercises" => "db_exercises#index"
-  # post "/db-exercises" => "db_exercises#create"
+  #post "/db-exercises" => "db_exercises#create"
+  #post "/db-exercises" => "db_exercises#create_exercises"
   get "/db-exercises" => "db_exercises#index"
-  post "/db-exercises" => "db_exercises#create_exercises"
-
-
+  get "/db-exercises-filter" => "db_exercises#show"
+  
 #Workout Routes for current user
   get "/workouts/me" => "workouts#index"
   post "/workouts/me" => "workouts#create"
