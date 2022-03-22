@@ -5,13 +5,13 @@ class Exercise < ApplicationRecord
   def exercises
     exercises.map do |exercise|
       exercise["name"] = non_sexist_name(exercise["name"])
-      exercise
+      exercises
   end
 
 
   def non_sexist_name (name) 
     name.slice! "(male)"
-    name.slice! "(female"
+    name.slice! "(female)"
     name.gsub! "sissy ", "lean back "
     name
   end
