@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   #post "/db-exercises" => "db_exercises#create"
   #post "/db-exercises" => "db_exercises#create_exercises"
   get "/db-exercises" => "db_exercises#index"
-  get "/db-exercises-filter" => "db_exercises#show"
+  get "/db-exercises-filter/" => "db_exercises#show"
   
 #Workout Routes for current user
   get "/workouts/me" => "workouts#index"

@@ -6,6 +6,7 @@ class Exercise < ApplicationRecord
   #   exercises.map do |exercise|
   #     exercise["name"] = non_sexist_name(exercise["name"])
   #     exercises
+  #   end
   # end
 
 
