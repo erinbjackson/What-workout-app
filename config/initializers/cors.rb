@@ -16,7 +16,7 @@
 # end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "localhost:8080", "spontaneous-figolla-bfbd63.netlify.app"
+    origins "localhost:8080", "624cb1a6f0968d0edf6f6379--spontaneous-figolla-bfbd63.netlify.app/"
 
     resource "*",
       headers: :any,
