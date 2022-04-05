@@ -51,9 +51,8 @@ while index < workout[:exercises].length
   index +=1
 end
 p exercise_ids
-
   array =[]
   workout[:exercises].each do |exercise| 
-array << [:exercises][:id]
-  end
-  p array
+  array << [:exercises][:id]
+end
+p array
